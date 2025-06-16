@@ -15,7 +15,7 @@ const EditEvent = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/events/${id}`)
+    fetch(`https://event-management-app-0ng0.onrender.com/api/events/${id}`)
       .then(response => {
         if (!response.ok) throw new Error('Failed to fetch');
         return response.json();
@@ -43,7 +43,7 @@ const EditEvent = () => {
     setIsLoading(true);
 
     try {
-      await fetch(`http://localhost:8000/api/events/${id}`, {
+      await fetch(`https://event-management-app-0ng0.onrender.com/api/events/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

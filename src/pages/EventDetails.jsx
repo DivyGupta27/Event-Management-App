@@ -10,18 +10,18 @@ const EventDetails = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/events/${id}`)
+    axios.get(`https://event-management-app-0ng0.onrender.com/api/events/${id}`)
       .then(res => setEvent(res.data))
       .catch(() => alert('Event not found'));
   }, [id]);
 
  const handleRSVP = async () => {
   try {
-    await axios.post(`http://localhost:8000/api/events/${id}/rsvp`, {}, {
+    await axios.post(`https://event-management-app-0ng0.onrender.com/api/events/${id}/rsvp`, {}, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
     // ✅ Refetch event data to update attendee list
-    const res = await axios.get(`http://localhost:8000/api/events/${id}`);
+    const res = await axios.get(`https://event-management-app-0ng0.onrender.com/api/events/${id}`);
     setEvent(res.data);
   } catch {
     alert('RSVP failed');
@@ -33,7 +33,7 @@ const EventDetails = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/events/${id}`, {
+      await axios.delete(`https://event-management-app-0ng0.onrender.com/api/events/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       alert('Event deleted');

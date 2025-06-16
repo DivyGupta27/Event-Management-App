@@ -28,7 +28,7 @@ const CreateEvent = () => {
     setIsLoading(true);
 
     try {
-      await axios.post('http://localhost:8000/api/events', formData, {
+      await axios.post('https://event-management-app-0ng0.onrender.com/api/events', formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
