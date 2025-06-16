@@ -6,7 +6,7 @@ const EventList = () => {
   const [events, setEvents] = useState([]);
 
  useEffect(() => {
-  axios.get('https://event-management-app-0ng0.onrender.com/api/events')
+  axios.get('https://event-management-app-0ng0.onrender.com//api/events')
     .then(res => {
       console.log('Fetched events:', res.data);
       if (Array.isArray(res.data)) {
